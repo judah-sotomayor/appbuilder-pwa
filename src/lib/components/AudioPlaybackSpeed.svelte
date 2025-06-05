@@ -1,3 +1,7 @@
+<!--
+@component
+The modal display to select audio playback speed.
+-->
 <script>
     import { monoIconColor, t, userSettings } from '$lib/data/stores';
     import Modal from './Modal.svelte';
@@ -36,16 +40,16 @@
                 <b>{$t['Settings_Audio_Speed']}</b>
             </h1>
             <div class="speed-controls">
-                {#each speeds as speed}
+                {#each speeds as {value, label}}
                     <label>
                         <input
                             type="radio"
                             name="speed"
-                            value={speed.value}
-                            on:click={setPlaySpeed}
-                            checked={$userSettings['audio-speed'] === speed.value}
+                            {value}
+                            onclick={setPlaySpeed}
+                            checked={$userSettings['audio-speed'] === value}
                         />
-                        {speed.label}
+                        {label}
                     </label>
                 {/each}
                 <div class="dy-modal-action close-btn">
