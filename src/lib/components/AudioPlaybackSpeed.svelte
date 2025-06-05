@@ -1,3 +1,7 @@
+<!--
+@component
+The modal display to select audio playback speed.
+-->
 <script>
     import { monoIconColor, t, userSettings } from '$lib/data/stores';
     import Modal from './Modal.svelte';
@@ -42,7 +46,7 @@
                             type="radio"
                             name="speed"
                             value={speed.value}
-                            on:click={setPlaySpeed}
+                            onclick={setPlaySpeed}
                             checked={$userSettings['audio-speed'] === speed.value}
                         />
                         {speed.label}
